@@ -6,13 +6,76 @@
     android:layout_height="match_parent"
     tools:context=".View.MainActivity">
 
+    <Button
+        android:id="@+id/btnMainPlans"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:background="@drawable/side_nav_bar"
+        android:onClick="onClick_btnMainPlans"
+        android:text="@string/btn_main_plans"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainJournal" />
+
+    <Button
+        android:id="@+id/btnMainWallet"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:background="@drawable/side_nav_bar"
+        android:onClick="onClick_btnMainWallet"
+        android:text="@string/btn_main_wallet"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainPlans" />
+
+    <Button
+        android:id="@+id/btnMainStats"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:background="@drawable/side_nav_bar"
+        android:onClick="onClick_btnMainStats"
+        android:text="@string/btn_main_stats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainWallet" />
+
+    <Button
+        android:id="@+id/btnMainSettings"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:background="@drawable/side_nav_bar"
+        android:onClick="onClick_btnMainSettings"
+        android:text="@string/btn_main_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainStats" />
+
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/lblJournalTitle2"
+        android:layout_width="138dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/main_title"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMainJournal"
+        android:layout_width="0dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/side_nav_bar"
+        android:onClick="onClick_btnMainJournal"
+        android:text="@string/btn_main_journal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblJournalTitle2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

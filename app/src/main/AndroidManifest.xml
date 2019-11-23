@@ -9,6 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name=".View.SettingsActivity"
+            android:label="@string/title_activity_settings"></activity>
+        <activity android:name=".View.PlansActivity" />
         <activity android:name=".View.StatsActivity" />
         <activity android:name=".View.WalletActivity" />
         <activity android:name=".View.JournalActivity" />

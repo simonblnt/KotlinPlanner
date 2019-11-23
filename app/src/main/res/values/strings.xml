@@ -33,4 +33,11 @@
     <string name="menu_back">Back</string>
 
     <string name="journal_title">Journal</string>
+
+    <string name="main_title">Planner</string>
+    <string name="btn_main_journal">Journal</string>
+    <string name="btn_main_plans">Plans</string>
+    <string name="btn_main_wallet">Wallet</string>
+    <string name="btn_main_stats">Stats</string>
+    <string name="btn_main_settings">Settings</string>
 </resources>

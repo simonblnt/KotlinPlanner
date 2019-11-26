@@ -18,8 +18,8 @@ class ListJournalAdapter(val items : ArrayList<JournalEntry>, val context: Conte
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.tvJournalEntryName?.text = items[position].name
-        holder.tvJournalEntryDate?.text = items[position].start_date.toString()
-        holder.tvJournalEntryCategory?.text = items[position].categoryId.toString()
+        holder.tvJournalEntryDate?.text = items[position].start_date
+        holder.tvJournalEntryCategory?.text = items[position].category
     }
 
     override fun getItemCount(): Int {

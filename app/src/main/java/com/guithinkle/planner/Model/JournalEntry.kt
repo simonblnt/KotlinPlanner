@@ -4,8 +4,8 @@ import java.time.LocalDate
 
 data class JournalEntry(val id: Int,
                         var name: String,
-                        var start_date: LocalDate,
-                        var endDate: LocalDate,
+                        var start_date: String,
+                        var endDate: String,
                         var description: String,
-                        var categoryId: Int,
-                        val walletId: Int?)
+                        var category: String,
+                        val walletAmount: Int)

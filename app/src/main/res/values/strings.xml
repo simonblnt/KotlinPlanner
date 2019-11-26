@@ -32,9 +32,19 @@
     <string name="menu_send">Send</string>
     <string name="menu_back">Back</string>
 
-    <string name="journal_title">Journal</string>
+    <string name="main_title">Kotlin Planner</string>
 
-    <string name="main_title">Planner</string>
+    <string name="journal_title">Journal</string>
+    <string name="journal_add_title">Add Journal Entry</string>
+
+    <string name="plans_title">Plans</string>
+    <string name="plans_add_title">Add Plan</string>
+
+    <string name="wallet_title">Wallet</string>
+    <string name="wallet_balance">Balance:</string>
+
+    <string name="stats_title">Stats</string>
+
     <string name="btn_main_journal">Journal</string>
     <string name="btn_main_plans">Plans</string>
     <string name="btn_main_wallet">Wallet</string>

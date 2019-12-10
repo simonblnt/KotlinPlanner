@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".View.EditJournalActivity">
 
     <EditText
-        android:id="@+id/etPlanAddDescription"
+        android:id="@+id/etJournalEditDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -15,10 +16,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lblPlanAddDescription" />
+        app:layout_constraintTop_toBottomOf="@id/lblJournalEditDescription" />
 
     <EditText
-        android:id="@+id/etPlanAddDate"
+        android:id="@+id/etJournalEditDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -27,35 +28,35 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblPlanAddDate" />
+        app:layout_constraintTop_toBottomOf="@+id/lblJournalEditDate" />
 
     <TextView
-        android:id="@+id/lblPlanAddTitle"
+        android:id="@+id/lblJournalEditTitle"
         android:layout_width="wrap_content"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:text="@string/plans_add_title"
+        android:text="Edit"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/btnPlanAddBack"
+        app:layout_constraintStart_toEndOf="@+id/btnJournalEditBack"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
-        android:id="@+id/btnPlanAddBack"
+        android:id="@+id/btnJournalEditBack"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="8dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
-        android:onClick="onClickBtnPlanAddBack"
+        android:onClick="onClickBtnJournalEditBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="?attr/homeAsUpIndicator" />
 
     <TextView
-        android:id="@+id/lblPlanAddName"
+        android:id="@+id/lblJournalEditName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -63,10 +64,10 @@
         android:layout_marginTop="8dp"
         android:text="Name:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnPlanAddBack" />
+        app:layout_constraintTop_toBottomOf="@+id/btnJournalEditBack" />
 
     <EditText
-        android:id="@+id/etPlanAddName"
+        android:id="@+id/etJournalEditName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -75,10 +76,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblPlanAddName" />
+        app:layout_constraintTop_toBottomOf="@+id/lblJournalEditName" />
 
     <TextView
-        android:id="@+id/lblPlanAddDate"
+        android:id="@+id/lblJournalEditDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -86,10 +87,10 @@
         android:layout_marginTop="8dp"
         android:text="Date:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPlanAddName" />
+        app:layout_constraintTop_toBottomOf="@+id/etJournalEditName" />
 
     <EditText
-        android:id="@+id/etPlanAddCategory"
+        android:id="@+id/etJournalEditCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -98,10 +99,10 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblPlanAddCategory" />
+        app:layout_constraintTop_toBottomOf="@+id/lblJournalEditCategory" />
 
     <TextView
-        android:id="@+id/lblPlanAddDescription"
+        android:id="@+id/lblJournalEditDescription"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -109,10 +110,10 @@
         android:layout_marginTop="8dp"
         android:text="Description:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPlanAddDate" />
+        app:layout_constraintTop_toBottomOf="@+id/etJournalEditDate" />
 
     <TextView
-        android:id="@+id/lblPlanAddCategory"
+        android:id="@+id/lblJournalEditCategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -120,17 +121,18 @@
         android:layout_marginTop="8dp"
         android:text="Category:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etPlanAddDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/etJournalEditDescription" />
 
     <ImageButton
-        android:id="@+id/btnPlanAddSave"
+        android:id="@+id/btnJournalEditSave"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"
-        android:onClick="onClickBtnPlanAddSave"
+        android:onClick="onClickBtnJournalEditSave"
         android:src="@android:drawable/ic_menu_save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

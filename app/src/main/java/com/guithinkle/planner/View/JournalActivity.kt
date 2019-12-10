@@ -12,69 +12,87 @@ import com.guithinkle.planner.DataAccess.JournalDbHelper
 import com.guithinkle.planner.Model.JournalEntry
 import com.guithinkle.planner.R
 import com.guithinkle.planner.ViewHolder.ListJournalAdapter
+import com.guithinkle.planner.ViewHolder.ListJournalAdapter.OnItemListener
 import kotlinx.android.synthetic.main.activity_journal.*
 import java.time.LocalDate
 
-class JournalActivity : AppCompatActivity() {
+
+class JournalActivity : AppCompatActivity(), OnItemListener {
+
+
     val journalEntries: ArrayList<JournalEntry> = ArrayList()
+    var selectedItem: JournalEntry? = null
+    var journalDbHelper = JournalDbHelper(this)
+
+    override fun onItemClick(position: Int) {
+        if (selectedItem == null) { // If Nothing is selected
+            selectedItem = journalEntries[position]
+            Log.d("Message", "Selected, position: " + position)
+        } else
+        {
+            if (selectedItem == journalEntries[position]) // If the selected item is already selected
+            {
+                selectedItem = null
+                Log.d("Message", "Deselected, position: " + position)
+            }
+            else // If the selected item is not already selected
+            {
+                selectedItem = journalEntries[position]
+                Log.d("Message", "Selected, position: " + position)
+            }
+        }
+    }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_journal)
 
-        addInitialJournalEntries()
+        addJournalEntries()
 
         rvJournalEntries.layoutManager = LinearLayoutManager(this)
-        rvJournalEntries.adapter = ListJournalAdapter(journalEntries, this)
+        rvJournalEntries.adapter = ListJournalAdapter(journalEntries, this, this)
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
     override fun onResume() {
         super.onResume()
+        journalEntries.clear()
         addJournalEntries()
         rvJournalEntries.layoutManager = LinearLayoutManager(this)
-        rvJournalEntries.adapter = ListJournalAdapter(journalEntries, this)
-    }
-
-    fun onClickBtnJournalBack (v: View){
-        startActivity(Intent(this, MainActivity::class.java))
+        rvJournalEntries.adapter = ListJournalAdapter(journalEntries, this, this)
     }
 
     fun onClickBtnJournalAdd (v: View) {
         startActivity(Intent(this, AddJournalActivity::class.java))
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     fun onClickBtnJournalDelete (v: View){
-
+        if (selectedItem != null)
+        {
+            val selectedItemId: String = selectedItem!!.id.toString()
+            journalDbHelper.deleteJournalEntry(selectedItemId)
+            onResume()
+        }
     }
 
     fun onClickBtnJournalEdit (v: View){
 
+        if (selectedItem != null)
+        {
+            val itemId: String = selectedItem!!.id.toString()
+            Log.d("ItemId Main Activity: ", itemId)
+            val intent = Intent(this, EditJournalActivity::class.java)
+            intent.putExtra("itemId", itemId)
+            startActivity(intent)
+        }
     }
-
-
-    @RequiresApi(Build.VERSION_CODES.O)
-    fun addInitialJournalEntries() {
-        journalEntries.add(
-            JournalEntry(
-                3,
-                "Buy Food",
-                LocalDate.now().minusDays(100).toString(),
-                LocalDate.MAX.toString(),
-                "buybuybyuy",
-                "Shopping",
-                0
-            )
-        )
-    }
-
         @RequiresApi(Build.VERSION_CODES.O)
     fun addJournalEntries(){
-            var helper = JournalDbHelper(this)
-            helper.logAll()
+            journalDbHelper.logAll()
 
-        val cursor = helper.allData
+        val cursor = journalDbHelper.allData
         if (cursor.moveToFirst()) {
             do{
                 val id = cursor.getInt(cursor.getColumnIndex("id"))
@@ -92,7 +110,7 @@ class JournalActivity : AppCompatActivity() {
                     category,
                     walletAmount))
                 rvJournalEntries.layoutManager = LinearLayoutManager(this)
-                rvJournalEntries.adapter = ListJournalAdapter(journalEntries, this)
+                rvJournalEntries.adapter = ListJournalAdapter(journalEntries, this, this)
             }while (cursor.moveToNext())
         }
     }

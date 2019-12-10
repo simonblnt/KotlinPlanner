@@ -41,12 +41,6 @@ class AddJournalActivity : AppCompatActivity() {
             e.printStackTrace()
             showToast(e.message.toString())
         }
-        journalDbHelper.insertJournalEntry("tss",
-            "dss",
-            "dss",
-            "desd",
-            "sddd",
-            0)
         startActivity(Intent(this, JournalActivity::class.java))
     }
 }

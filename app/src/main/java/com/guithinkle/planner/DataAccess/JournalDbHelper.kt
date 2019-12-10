@@ -49,7 +49,8 @@ class JournalDbHelper(context: Context):
         db.insert(table_name, null, contentValues)
     }
 
-    fun updateJournalEntry(id: String,
+    fun updateJournalEntry(
+                    id: String,
                    name: String,
                    start_date: String,
                    end_date: String,
